@@ -1,7 +1,7 @@
-const { User, Post } = require('../models');
-const { signToken } = require('../utils/auth');
+const { Post } = require('../../models');
+const { signToken } = require('../../utils/auth');
 
-const resolvers = {
+module.exports = {
     Query: {
         async getPosts() {
             try {
@@ -13,5 +13,3 @@ const resolvers = {
         }
     }
 };
-
-module.exports = resolvers;

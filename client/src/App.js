@@ -5,22 +5,26 @@ import MenuBar from "./components/MenuBar";
 import Home from "./components/pages/Home";
 import Login from "./components/pages/Login";
 import Register from "./components/pages/Register";
+import { AuthProvider } from "./utils/auth";
+import AuthRoute from "./utils/AuthRoute";
 
 import "semantic-ui-css/semantic.min.css";
 import "./App.css";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Container>
-        <MenuBar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-        </Routes>
-      </Container>
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <Container>
+          <MenuBar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+          </Routes>
+        </Container>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 

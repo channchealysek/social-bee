@@ -1,8 +1,8 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const QUERY_POSTS = gql`
   {
-    getPosts{
+    getPosts {
       id
       body
       createdAt

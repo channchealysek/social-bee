@@ -1,6 +1,7 @@
 import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { ApolloProvider } from '@apollo/react-hooks';
+
 import App from './App';
 
 
@@ -9,7 +10,7 @@ const httpLink = createHttpLink({
   });
   
   const authLink = setContext((_, { headers }) => {
-    const token = localStorage.getItem('id_token');
+    const token = localStorage.getItem('token');
     return {
       headers: {
         ...headers,

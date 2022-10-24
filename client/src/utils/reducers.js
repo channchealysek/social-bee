@@ -1,18 +1,13 @@
 import { useReducer } from "react";
-import { LOGIN, LOGOUT } from './actions';
+import { UPDATE_POSTS } from './actions';
 
   export const reducer = (state, action) => {
     switch (action.type) {
-        case LOGIN:
-          return {
-            ...state,
-            user: action.payload
-          };
-        case LOGOUT:
-          return {
-            ...state,
-            user: null
-          };
+          case UPDATE_POSTS:
+            return {
+              ...state,
+              posts: action.posts
+            };
         default:
           return state;
       }

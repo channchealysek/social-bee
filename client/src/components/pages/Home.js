@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useContext } from "react";
 import { useQuery } from "@apollo/react-hooks";
-import { QUERY_POSTS } from '../../utils/queries'
+import { QUERY_POSTS } from "../../utils/queries";
 import { Grid } from "semantic-ui-react";
+import { AuthContext } from "../../utils/auth";
+import PostForm from '../../components/PostForm';
 import PostCard from "../../components/PostCard";
 
 export default function Home() {
 
-const { loading ,data } = useQuery(QUERY_POSTS);
+  const { user } = useContext(AuthContext);
+  const { loading, data } = useQuery(QUERY_POSTS);
 
   return (
     <Grid columns={3}>
@@ -14,9 +17,17 @@ const { loading ,data } = useQuery(QUERY_POSTS);
         <h1> Recent Posts</h1>
       </Grid.Row>
       <Grid.Row>
+        {user && (
+          <Grid.Column>
+            <PostForm>
+
+            </PostForm>
+          </Grid.Column>
+        )}
         {loading ? (
           <h1>loading posts...</h1>
-        ) : ( data.getPosts &&
+        ) : (
+          data.getPosts &&
           data.getPosts.map((post) => (
             <Grid.Column key={post.id} style={{ marginBottom: 20 }}>
               <PostCard post={post} />
@@ -27,5 +38,3 @@ const { loading ,data } = useQuery(QUERY_POSTS);
     </Grid>
   );
 }
-
-

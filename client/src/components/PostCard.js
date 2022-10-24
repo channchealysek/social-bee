@@ -6,24 +6,29 @@ import moment from "moment";
 export default function PostCard({
   post: { id, body, createdAt, username, likeCount, commentCount, likes },
 }) {
+  function likePost() {
+    console.log("like post!");
+  }
 
-    function likePost() {
-        console.log('like post!')
-    }
-
-    function commentOnPost() {
-        console.log('comment on post!')
-    }
+  function commentOnPost() {
+    console.log("comment on post!");
+  }
   return (
     <Card fluid>
       <Card>
         <Card.Content>
-          <Image
-            floated="right"
-            size="mini"
-            src="https://react.semantic-ui.com/images/avatar/large/steve.jpg"
-          />
-          <Card.Header>{username}</Card.Header>
+          <Card.Header>
+            <span>
+              {" "}
+              <Image
+                avatar
+                floated="left"
+                size="large"
+                src="https://react.semantic-ui.com/images/avatar/large/steve.jpg"
+              />
+            </span>
+            {username}
+          </Card.Header>
           <Card.Meta as={Link} to={`/posts/${id}`}>
             {moment(createdAt).fromNow(true)}
           </Card.Meta>
@@ -35,7 +40,7 @@ export default function PostCard({
               <Icon name="heart" />
             </Button>
             <Label basic color="teal" pointing="left">
-              { likeCount }
+              {likeCount}
             </Label>
           </Button>
           <Button as="div" labelPosition="right" onClick={commentOnPost}>
@@ -43,7 +48,7 @@ export default function PostCard({
               <Icon name="comments" />
             </Button>
             <Label basic color="blue" pointing="left">
-              { commentCount }
+              {commentCount}
             </Label>
           </Button>
         </Card.Content>

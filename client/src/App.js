@@ -6,7 +6,6 @@ import Home from "./components/pages/Home";
 import Login from "./components/pages/Login";
 import Register from "./components/pages/Register";
 import { AuthProvider } from "./utils/auth";
-import AuthRoute from "./utils/AuthRoute";
 
 import "semantic-ui-css/semantic.min.css";
 import "./App.css";

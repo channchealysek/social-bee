@@ -1,14 +1,12 @@
-import React from "react";
+import React from 'react';
 import { useQuery } from "@apollo/react-hooks";
-import gql from "graphql-tag";
+import { QUERY_POSTS } from '../../utils/queries'
 import { Grid } from "semantic-ui-react";
 import PostCard from "../../components/PostCard";
 
 export default function Home() {
-  const {
-    loading,
-   data:{getPosts: posts}
-  } = useQuery(FETCH_POSTS_QUERY);
+
+const { loading, data:{getPosts: posts} } = useQuery(QUERY_POSTS);
 
   return (
     <Grid columns={3}>
@@ -31,24 +29,4 @@ export default function Home() {
   );
 }
 
-const FETCH_POSTS_QUERY = gql`
-  {
-    getPosts{
-      id
-      body
-      createdAt
-      username
-      likeCount
-      likes {
-        username
-      }
-      commentCount
-      comments {
-        id
-        username
-        createdAt
-        body
-      }
-    }
-  }
-`;
+

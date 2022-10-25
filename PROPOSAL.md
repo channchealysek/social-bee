@@ -4,8 +4,6 @@ SOCIAL-BEE
 ## Project Summary
 This application is like facebook or tweeter or any social media social application which that allow user to register and login. Ater user logged in they can create news, like and comments on the posts with other users.
 
-...
-
 ## Developers
 
 1. Channchealy Sek

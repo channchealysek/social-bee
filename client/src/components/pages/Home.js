@@ -3,8 +3,8 @@ import { useQuery } from "@apollo/react-hooks";
 import { QUERY_POSTS } from "../../utils/queries";
 import { Grid } from "semantic-ui-react";
 import { AuthContext } from "../../utils/auth";
-import PostForm from '../../components/PostForm';
-import PostCard from "../../components/PostCard";
+import PostForm from '../PostForm';
+import PostCard from "../PostCard";
 
 export default function Home() {
 

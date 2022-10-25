@@ -1,5 +1,4 @@
 const bcrypt = require("bcrypt");
-const jwt = require('jsonwebtoken');
 const { User } = require("../../models");
 const { signToken } = require("../../utils/auth");
 const {
@@ -48,7 +47,7 @@ module.exports = {
         confirmPassword
       );
       if (!valid) {
-        throw new UserInputError("Error", { errors });
+        throw new UserInputError('Errors', { errors });
       }
       // Make sure user doesn't already exist
       const userExist = await User.findOne({ username });

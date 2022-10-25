@@ -19,7 +19,6 @@ export default function PostCard({
         <Card.Content>
           <Card.Header>
             <span>
-              {" "}
               <Image
                 avatar
                 floated="left"

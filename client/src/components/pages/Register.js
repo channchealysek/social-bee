@@ -6,7 +6,7 @@ import { useForm } from "../../utils/hooks";
 
 import { AuthContext } from "../../utils/auth";
 
-export default function Register(props) {
+export default function Register() {
 
   const context = useContext(AuthContext);
 

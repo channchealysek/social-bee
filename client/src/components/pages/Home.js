@@ -10,18 +10,16 @@ export default function Home() {
 
   const { user } = useContext(AuthContext);
   const { loading, data } = useQuery(QUERY_POSTS);
-
+// ui stackable cards
   return (
-    <Grid columns={3}>
+    <Grid className="ui three column grid">
       <Grid.Row className="page-title">
         <h1> Recent Posts</h1>
       </Grid.Row>
-      <Grid.Row>
+      <Grid.Row className="ui stackable cards ">
         {user && (
           <Grid.Column>
-            <PostForm>
-
-            </PostForm>
+            <PostForm />
           </Grid.Column>
         )}
         {loading ? (

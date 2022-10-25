@@ -14,7 +14,7 @@ export default function PostCard({
     console.log("comment on post!");
   }
   return (
-    <Card fluid>
+    <Card>
       <Card>
         <Card.Content>
           <Card.Header>

@@ -8,7 +8,7 @@ import Register from "./components/pages/Register";
 import NotFound from "./components/pages/NotFound";
 import { AuthProvider } from "./utils/auth";
 
-import AuthRoute from './utils/AuthRoute';
+// import AuthRoute from './utils/AuthRoute';
 
 import "semantic-ui-css/semantic.min.css";
 import "./App.css";
@@ -21,8 +21,10 @@ function App() {
           <MenuBar />
           <Routes>
             <Route path="/" element={<Home />} />
-            {/* <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} /> */}
+            {/* <AuthRoute path="/login" element={<Login />} />
+            <AuthRoute path="/register" element={<Register />} /> */}
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
             <Route path="*" element={<NotFound />}/>
           </Routes>
         </Container>

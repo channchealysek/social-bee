@@ -5,6 +5,7 @@ import MenuBar from "./components/MenuBar";
 import Home from "./components/pages/Home";
 import Login from "./components/pages/Login";
 import Register from "./components/pages/Register";
+import SinglePost from "./components/pages/SinglePost";
 import NotFound from "./components/pages/NotFound";
 import { AuthProvider } from "./utils/auth";
 
@@ -25,6 +26,7 @@ function App() {
             <AuthRoute path="/register" element={<Register />} /> */}
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/posts/:postId" element={<SinglePost />} />
             <Route path="*" element={<NotFound />}/>
           </Routes>
         </Container>

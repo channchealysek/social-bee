@@ -61,6 +61,30 @@ export const CREATE_POST = gql`
   }
 `;
 
+export const EDIT_POST = gql`
+  mutation editPost($postId: ID!, $body: String!) {
+    editPost(postId: $postId, body: $body) {
+      id
+      body
+      createdAt
+      username
+      likes {
+        id
+        username
+        createdAt
+      }
+      likeCount
+      comments {
+        id
+        body
+        username
+        createdAt
+      }
+      commentCount
+    }
+  }
+`;
+
 export const LIKE_POST = gql`
   mutation likePost($postId: ID!) {
     likePost(postId: $postId) {

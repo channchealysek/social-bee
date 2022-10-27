@@ -44,6 +44,17 @@ module.exports = {
 
       return post;
     },
+
+    async updatePost(_, args, context) {
+      const user = authMiddleware(context);
+      if (args.body.trim() === '') {
+        throw new Error('Post body must not be empty');
+      }
+      console.log(args.postId);
+      console.log(args.body)
+      return Post.findOneAndUpdate({_id: args.postId}, {body: args.body}, {new:true});
+    },
+
     async deletePost(_, { postId }, context) {
       const user = authMiddleware(context);
 

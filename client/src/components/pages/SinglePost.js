@@ -17,13 +17,14 @@ import {
 } from "semantic-ui-react";
 import LikeButton from "../LikeButton";
 import DeleteButton from "../DeleteButton";
+import EditButton from "../EditButton";
 import MyPopup from "../../utils/MyPopup";
 
 export default function SinglePost(props) {
   const { postId } = useParams();
   const { user } = useContext(AuthContext);
 
-  const [comment, setComment] = useState('');
+  const [comment, setComment] = useState("");
   const commentInputRef = useRef(null);
 
   const { loading, data } = useQuery(QUERY_POST, {
@@ -34,14 +35,14 @@ export default function SinglePost(props) {
 
   const [submitComment] = useMutation(SUBMIT_COMMENT, {
     update() {
-      setComment('');
+      setComment("");
       commentInputRef.current.blur();
     },
     variables: {
       postId,
-      body: comment
-    }
-  })
+      body: comment,
+    },
+  });
 
   function deletePostCallback() {
     window.location.assign("/");
@@ -83,18 +84,18 @@ export default function SinglePost(props) {
                 <Segment.Inline>
                   <LikeButton user={user} post={{ id, likes, likeCount }} />
                   <MyPopup content="Comment on post">
-                  <Button
-                    as="div"
-                    labelPosition="right"
-                    onClick={() => console.log("Comment on post!")}
-                  >
-                    <Button basic color="blue">
-                      <Icon name="comments" />
+                    <Button
+                      as="div"
+                      labelPosition="right"
+                      onClick={() => console.log("Comment on post!")}
+                    >
+                      <Button basic color="blue">
+                        <Icon name="comments" />
+                      </Button>
+                      <Label as="a" basic color="blue" pointing="left">
+                        {commentCount}
+                      </Label>
                     </Button>
-                    <Label as="a" basic color="blue" pointing="left">
-                      {commentCount}
-                    </Label>
-                  </Button>
                   </MyPopup>
 
                   <Button
@@ -104,16 +105,9 @@ export default function SinglePost(props) {
                   />
 
                   <Button.Group floated="right">
-                    {
-                      <Button
-                        as="div"
-                        color="blue"
-                        floated="right"
-                        onClick={() => console.log("edit post")}
-                      >
-                        <Icon name="edit" style={{ margin: 0 }} />
-                      </Button>
-                    }
+                    {user && user.username === username && (
+                      <EditButton postId={id}/>
+                    )}
                     {user && user.username === username && (
                       <DeleteButton postId={id} callback={deletePostCallback} />
                     )}
@@ -127,29 +121,28 @@ export default function SinglePost(props) {
                   <p>Post a comment</p>
                   <Form>
                     <div className="ui action input fluid">
-                      <input 
+                      <input
                         type="text"
                         placeholder="Comment..."
                         name="comment"
                         value={comment}
                         onChange={(event) => setComment(event.target.value)}
-                        ref = {commentInputRef}
+                        ref={commentInputRef}
                       />
-                       <button
-                       type="submit"
-                       className="ui button teal"
-                       disabled={comment.trim()=== ''}
-                       onClick={submitComment}
-                       >
-                         Submit
-                       </button>
+                      <button
+                        type="submit"
+                        className="ui button teal"
+                        disabled={comment.trim() === ""}
+                        onClick={submitComment}
+                      >
+                        Submit
+                      </button>
                     </div>
                   </Form>
                 </Card.Content>
               </Card>
             )}
-            {
-              comments.map((comment) => (
+            {comments.map((comment) => (
               <Card fluid key={comment.id}>
                 <Card.Content>
                   {user && user.username === comment.username && (
@@ -160,7 +153,7 @@ export default function SinglePost(props) {
                   <Card.Description>{comment.body}</Card.Description>
                 </Card.Content>
               </Card>
-              ))}
+            ))}
           </Grid.Column>
         </Grid.Row>
       </Grid>

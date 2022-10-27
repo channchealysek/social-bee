@@ -3,6 +3,7 @@ import { Card, Icon, Image, Button, Label, Segment } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import LikeButton from "../LikeButton";
 import DeleteButton from "../DeleteButton";
+import EditButton from "../EditButton";
 import MyPopup from "../../utils/MyPopup";
 import moment from "moment";
 import { AuthContext } from "../../utils/auth";
@@ -35,7 +36,7 @@ export default function PostCard({
         <Segment.Inline>
           <LikeButton user={user} post={{ id, likes, likeCount }} />
           <MyPopup content="Comment on post">
-            <Button labelPosition="right" as={Link} to={user && `/posts/${id}`}>
+            <Button labelPosition="right" as={Link} to={`/posts/${id}`}>
               <Button color="blue" basic>
                 <Icon name="comments" />
               </Button>
@@ -50,16 +51,7 @@ export default function PostCard({
             labelPosition="left"
           />
           <Button.Group floated="right">
-            {user && user.username === username && (
-              <Button
-                as="div"
-                color="blue"
-                floated="right"
-                onClick={() => console.log("edit post")}
-              >
-                <Icon name="edit" style={{ margin: 0 }} />
-              </Button>
-            )}
+            {user && user.username === username && <EditButton postId={id} />}
             {user && user.username === username && <DeleteButton postId={id} />}
           </Button.Group>
         </Segment.Inline>

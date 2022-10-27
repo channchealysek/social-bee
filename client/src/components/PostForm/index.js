@@ -7,7 +7,7 @@ import { CREATE_POST } from "../../utils/mutations";
 import { QUERY_POSTS } from "../../utils/queries";
 import { useMutation } from "@apollo/client";
 
-export default function PostForm() {
+export default function EditForm() {
 
   const { values, onChange, onSubmit } = useForm(newPost, {
     body: "",

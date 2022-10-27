@@ -62,8 +62,8 @@ export const CREATE_POST = gql`
 `;
 
 export const EDIT_POST = gql`
-  mutation editPost($postId: ID!, $body: String!) {
-    editPost(postId: $postId, body: $body) {
+  mutation updatePost($postId: ID!, $body: String!) {
+    updatePost(postId: $postId, body: $body) {
       id
       body
       createdAt

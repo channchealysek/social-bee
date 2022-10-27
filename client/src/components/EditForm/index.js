@@ -37,7 +37,7 @@ export default function PostForm({ postId }) {
         <h2>Edit a post:</h2>
         <Form.Field>
           <Form.TextArea
-            placeholder="Tell us more"
+            placeholder="How are you today?"
             style={{ minHeight: 100 }}
             name="body"
             onChange={onChange}

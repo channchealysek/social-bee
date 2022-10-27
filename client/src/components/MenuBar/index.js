@@ -18,7 +18,14 @@ export default function MenuBar() {
       as={Link}
       to="/"
     />
+    
     <Menu.Menu position="right">
+    <Menu.Item
+        name="myInfo"
+        onClick={handleItemClick}
+        as={Link}
+        to={user && `/users/${user.id}`}
+      />
       <Menu.Item
         name="logout"
         onClick={logout}

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { useMutation } from '@apollo/react-hooks';
+import { useMutation } from '@apollo/client';
 import { Button, Confirm, Icon } from 'semantic-ui-react';
 import { DELETE_POST, DELETE_COMMENT } from '../../utils/mutations'
+import { QUERY_POSTS } from "../../utils/queries";
 import MyPopup from '../../utils/MyPopup';
 
 export default function DeleteButton({ postId, commentId, callback }) {
@@ -13,7 +14,16 @@ export default function DeleteButton({ postId, commentId, callback }) {
     update(proxy) {
       setConfirmOpen(false);
       if (!commentId) {
-        window.location.assign('/');
+        const data = proxy.readQuery({
+          query: QUERY_POSTS,
+      });
+      proxy.writeQuery({
+  
+          query: QUERY_POSTS,
+          data: {
+              getPosts: data.getPosts.filter((post) => post.id !== postId),
+          },
+      });
       }
       if (callback) callback();
     },

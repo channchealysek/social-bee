@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import { LIKE_POST } from "../../utils/mutations";
-import { useMutation } from "@apollo/react-hooks";
+import { useMutation } from "@apollo/client";
 import { Button, Label, Icon } from 'semantic-ui-react';
 import MyPopup from "../../utils/MyPopup";
 

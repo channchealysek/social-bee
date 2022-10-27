@@ -5,7 +5,7 @@ import { useForm } from "../../utils/hooks";
 
 import { CREATE_POST } from "../../utils/mutations";
 import { QUERY_POSTS } from "../../utils/queries";
-import { useMutation } from "@apollo/react-hooks";
+import { useMutation } from "@apollo/client";
 
 export default function PostForm() {
 
@@ -21,7 +21,7 @@ export default function PostForm() {
       });
       proxy.writeQuery({
         query: QUERY_POSTS,
-        data: {
+        data: {...data,
           getPosts: [result.data.createPost, ...data.getPosts],
         },
       });
@@ -38,24 +38,24 @@ export default function PostForm() {
       <Form onSubmit={onSubmit}>
         <h2>Create a post:</h2>
         <Form.Field>
-          <Form.Input
-            placeholder="Hi World!"
+          <Form.TextArea
+            placeholder='Tell us more' 
+            style={{ minHeight: 100 }}
             name="body"
             onChange={onChange}
             value={values.body}
             error={error ? true : false}
           />
-          <Button type="submit" color="teal">
+          <Button type="submit" color="teal" floated="right">
             Submit
           </Button>
         </Form.Field>
       </Form>
       {error && (
-        <div className="ui error message" style={{ marginBottom: 20 }}>
+        <div className="ui error message" style={{ marginBottom: 20, width: 350 }}>
           <ul className="list">
             <li>
                 {error.graphQLErrors[0].message}
-                {/* {error.networkError.result.errors[0].message} */}
             </li>
           </ul>
         </div>

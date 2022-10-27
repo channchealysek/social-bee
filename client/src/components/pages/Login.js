@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Form, Button } from "semantic-ui-react";
 import { LOGIN_USER } from "../../utils/mutations";
-import { useMutation } from "@apollo/react-hooks";
+import { useMutation } from "@apollo/client";
 import { useForm } from "../../utils/hooks";
 import { AuthContext } from "../../utils/auth";
 

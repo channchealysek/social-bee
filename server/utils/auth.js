@@ -30,7 +30,7 @@ module.exports = {
       {
         id: user.id,
         email: user.email,
-        username: user.username,
+        username: user.username
       },
       secret,
       { expiresIn: "1h" }

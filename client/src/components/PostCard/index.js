@@ -14,7 +14,7 @@ export default function PostCard({
   const { user } = useContext(AuthContext);
 
   return (
-    <Card fluid>
+    <Card className="ui card fluid">
       <Card.Content>
         <Card.Header>
           <span>

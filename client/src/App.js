@@ -16,6 +16,8 @@ import { AuthProvider } from "./utils/auth";
 import "semantic-ui-css/semantic.min.css";
 import "./App.css";
 
+import EditPost from './components/pages/EditPost';
+
 function App() {
   return (
     <AuthProvider>
@@ -30,6 +32,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/users/:userId" element={<MyInfo />} />
             <Route path="/posts/:postId" element={<SinglePost />} />
+            <Route path="/posts/edit/:postId" element={<EditPost />} />
             <Route path="*" element={<NotFound />}/>
           </Routes>
         </Container>

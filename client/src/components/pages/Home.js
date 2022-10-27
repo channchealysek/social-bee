@@ -28,15 +28,12 @@ export default function Home() {
             <Transition.Group>
               {data.getPosts &&
                 data.getPosts.map((post) => (
-                  <Grid>
-                    <Grid.Column
-                      width={12}
+                    <div className="ui fade visible transition"
                       key={post.id}
                       style={{ marginBottom: 20 }}
                     >
                       <PostCard key={post.id} post={post} />
-                    </Grid.Column>
-                  </Grid>
+                    </div>
                 ))}
             </Transition.Group>
           </>

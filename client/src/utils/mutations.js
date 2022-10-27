@@ -1,4 +1,4 @@
-import gql from 'graphql-tag';
+import gql from "graphql-tag";
 
 export const LOGIN_USER = gql`
   mutation login($username: String!, $password: String!) {
@@ -11,7 +11,6 @@ export const LOGIN_USER = gql`
     }
   }
 `;
-
 
 export const REGISTER_USER = gql`
   mutation register(
@@ -99,7 +98,7 @@ export const LIKE_POST = gql`
 `;
 
 export const SUBMIT_COMMENT = gql`
-  mutation($postId: String!, $body: String!) {
+  mutation ($postId: String!, $body: String!) {
     createComment(postId: $postId, body: $body) {
       id
       comments {
@@ -133,4 +132,3 @@ export const DELETE_COMMENT = gql`
     }
   }
 `;
-

@@ -20,7 +20,7 @@ import DeleteButton from "../DeleteButton";
 import EditButton from "../EditButton";
 import MyPopup from "../../utils/MyPopup";
 
-export default function SinglePost(props) {
+export default function SinglePost() {
   const { postId } = useParams();
   const { user } = useContext(AuthContext);
 

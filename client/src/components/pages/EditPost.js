@@ -1,45 +1,44 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { Form, Button } from "semantic-ui-react";
+import { Link, useParams } from "react-router-dom";
+import { Form, Button, Card } from "semantic-ui-react";
 import { useForm } from "../../utils/hooks";
 import { EDIT_POST } from "../../utils/mutations";
 import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_POST } from "../../utils/queries";
 
-export default function PostForm({ postId }) {
+export default function EditPost() {
+  const { postId } = useParams();
+  
+
   const { data } = useQuery(QUERY_POST, {
     variables: { postId },
   });
-
   const getPost = data?.getPost || {};
   const { body } = getPost;
 
-  const { values, onChange, onSubmit } = useForm(editPost, {
+  const { values, onChange} = useForm(editPost, {
     body: "",
   });
+  const [updatePost, { error }] = useMutation(EDIT_POST);
 
-  const [createEditPost, { error }] = useMutation(EDIT_POST, {
-    variables: {
+  function editPost() {
+    updatePost({variables: {
       postId,
-      body: values.body,
-    },
-  });
-
-  function editPost(event) {
-    createEditPost();
+      body: values.body.trim(),
+    }});
   }
   let makeUpEditPost;
   makeUpEditPost = (
-    <>
-      <Form onSubmit={onSubmit} >
+    <Card className="ui card fluid">
+      <Form style={{padding: 30}}>
         <h2>Edit a post:</h2>
-        <Form.Field>
+        <Form.Field >
           <Form.TextArea
             placeholder="How are you today?"
             style={{ minHeight: 100 }}
             name="body"
             onChange={onChange}
-            value={values.body? body.value : body}
+            value={values.body ? body.value : body}
             error={error ? true : false}
           />
           <Button
@@ -47,7 +46,9 @@ export default function PostForm({ postId }) {
             color="teal"
             floated="right"
             style={{ marginBottom: 20 }}
-            as={Link} to={`/posts/${postId}`}
+            as={Link}
+            to={`/posts/${postId}`}
+            onClick={() => editPost()}
           >
             Update
           </Button>
@@ -63,7 +64,7 @@ export default function PostForm({ postId }) {
           </ul>
         </div>
       )}
-    </>
+    </Card>
   );
   return makeUpEditPost;
 }

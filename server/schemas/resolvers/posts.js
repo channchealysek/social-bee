@@ -50,8 +50,6 @@ module.exports = {
       if (args.body.trim() === '') {
         throw new Error('Post body must not be empty');
       }
-      console.log(args.postId);
-      console.log(args.body)
       return Post.findOneAndUpdate({_id: args.postId}, {body: args.body}, {new:true});
     },
 

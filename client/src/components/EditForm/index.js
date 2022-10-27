@@ -1,8 +1,7 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 import { Form, Button } from "semantic-ui-react";
 import { useForm } from "../../utils/hooks";
-
 import { EDIT_POST } from "../../utils/mutations";
 import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_POST } from "../../utils/queries";
@@ -18,21 +17,23 @@ export default function PostForm({ postId }) {
   const { values, onChange, onSubmit } = useForm(editPost, {
     body: "",
   });
-  console.log(postId);
-  console.log(values.body);
 
   const [createEditPost, { error }] = useMutation(EDIT_POST, {
-    variables: { postId, body: values.body },
+    variables: {
+      postId,
+      body: values.body,
+    },
   });
 
   function editPost(event) {
-    // event.preventDefault();
     createEditPost();
+    console.log(postId)
+    console.log(values.body)
   }
   let makeUpEditPost;
   makeUpEditPost = (
     <>
-      <Form onSubmit={onSubmit}>
+      <Form onSubmit={onSubmit} >
         <h2>Edit a post:</h2>
         <Form.Field>
           <Form.TextArea
@@ -48,6 +49,7 @@ export default function PostForm({ postId }) {
             color="teal"
             floated="right"
             style={{ marginBottom: 20 }}
+            as={Link} to={`/posts/${postId}`}
           >
             Update
           </Button>

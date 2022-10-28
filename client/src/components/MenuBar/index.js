@@ -21,10 +21,10 @@ export default function MenuBar() {
     
     <Menu.Menu position="right">
     <Menu.Item
-        name="myInfo"
+        name="dashboard"
         onClick={handleItemClick}
         as={Link}
-        to={user && `/users/${user.id}`}
+        to={user && `/dashboard/${user.id}`}
       />
       <Menu.Item
         name="logout"

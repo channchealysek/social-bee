@@ -24,7 +24,21 @@ module.exports = {
         throw new Error(err);
       }
     },
+    async getPostByUser(_, { userId }){
+      try {
+        console.log(userId)
+        const post = await Post.findOne({user: userId});
+        if (post) {
+          return post;
+        } else {
+          throw new Error("Post not found");
+        }
+      } catch (err) {
+        throw new Error(err);
+      }
+    },
   },
+
   Mutation: {
     async createPost(_, {body}, context) {
       const user = authMiddleware(context);

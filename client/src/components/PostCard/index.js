@@ -12,7 +12,7 @@ export default function PostCard({
   post: { id, body, createdAt, username, likeCount, commentCount, likes },
 }) {
   const { user } = useContext(AuthContext);
-
+  if(!user) window.location.assign("/login");
   return (
     <Card className="ui card fluid">
       <Card.Content>
@@ -22,7 +22,7 @@ export default function PostCard({
               avatar
               floated="left"
               size="large"
-              src="https://react.semantic-ui.com/images/avatar/large/steve.jpg"
+              src="https://react.semantic-ui.com/images/avatar/large/daniel.jpg"
             />
           </span>
           {username}

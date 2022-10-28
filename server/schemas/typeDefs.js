@@ -12,6 +12,14 @@ const typeDefs = gql`
     likeCount: Int!
     commentCount: Int!
   }
+  type User {
+    id: ID!
+    username: String!
+    email: String!
+    token: String!
+    createdAt: String!
+    friendCount: Int!
+  }
 
   type Comment {
     id: ID!
@@ -28,16 +36,9 @@ const typeDefs = gql`
 
   type Query {
     getPosts: [Post]
+    getUsers: [User]
     getPost(postId: ID!): Post
     getPostByUser(userId: ID!): Post
-  }
-
-  type User {
-    id: ID!
-    username: String!
-    email: String!
-    token: String!
-    createdAt: String!
   }
 
   input RegisterInput {
@@ -56,6 +57,7 @@ const typeDefs = gql`
     createComment(postId: String!, body: String!): Post!
     deleteComment(postId: ID!, commentId: ID!): Post!
     likePost(postId: ID!): Post!
+    addFriend(userId: ID!, friendId: ID!): User!
   }
 `;
 

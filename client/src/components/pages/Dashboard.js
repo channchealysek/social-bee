@@ -1,36 +1,32 @@
-import React, { useContext } from "react";
-import {
-  Grid,
-  Card,
-  Image,
-  Icon,
-  Button,
-} from "semantic-ui-react";
+import React, { useState, useContext } from "react";
+import DashboardCard from '../DashboardCard'
+import AddFriends from "./AddFriends";
+import UserPosts from "./UserPosts";
+import UserStores from "./UserStores";
 import { AuthContext } from "../../utils/auth";
+
 export default function Dashboard() {
   const { user } = useContext(AuthContext);
+  if(!user) window.location.assign("/");
+  const [_Target, _setTarget] = useState(<UserPosts postCounts />);
+
+  function actionViews(event) {
+    const _target = event.target.name;
+    if (_target === "bntuser") {
+     _setTarget(
+        <AddFriends />)
+    }
+    if (_target === "bntviewposts") {
+      _setTarget(<UserPosts />)
+    }
+    if (_target === "bntstore") {
+      _setTarget(<UserStores />)
+    }
+  }
   return (
-    <Grid.Column>
-      {user && (
-        <Card>
-          <Card.Content>
-          <Image className="ui card avatar"
-            src="https://react.semantic-ui.com/images/avatar/large/daniel.jpg"
-          />
-            <Card.Meta>
-            <a href="#">
-              10 Friends
-            </a>
-            <Button
-              color="darkblue"
-              floated="right"
-            >
-              <Icon name="users" style={{ margin: 0 }} /> Add Friend
-            </Button>
-            </Card.Meta>
-          </Card.Content>
-        </Card>
-      )}
-    </Grid.Column>
+    <>
+    <DashboardCard actionViews={actionViews}/>
+    {_Target}
+    </>
   );
 }

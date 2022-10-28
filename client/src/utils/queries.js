@@ -43,3 +43,14 @@ export const QUERY_POST = gql`
     }
   }
 `;
+
+export const QUERY_USERS =gql`
+query {
+  getUsers {
+    id
+    username
+    email
+    createdAt
+  }
+}
+`;

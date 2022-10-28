@@ -8,6 +8,17 @@ const {
 const { UserInputError } = require("apollo-server-express");
 
 module.exports = {
+  Query: {
+    async getUsers() {
+      try {
+        const users = await User.find();
+        return users;
+      } catch (err) {
+        throw new Error(err);
+      }
+    },
+  },
+
   Mutation: {
     async login(_, { username, password }) {
       const { valid, errors } = validateLoginInput(username, password);
@@ -47,7 +58,7 @@ module.exports = {
         confirmPassword
       );
       if (!valid) {
-        throw new UserInputError('Errors', { errors });
+        throw new UserInputError("Errors", { errors });
       }
       // Make sure user doesn't already exist
       const userExist = await User.findOne({ username });

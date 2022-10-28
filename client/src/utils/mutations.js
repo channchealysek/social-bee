@@ -132,3 +132,18 @@ export const DELETE_COMMENT = gql`
     }
   }
 `;
+
+export const ADD_FRIEND = gql`
+  mutation addFriend($userId: ID!, $friendId: ID!) {
+    addFriend(userId: $userId, friendId: $friendId) {
+      id
+      friendCount
+      friends {
+        id
+        username
+        email
+        createdAt
+      }
+    }
+  }
+`;

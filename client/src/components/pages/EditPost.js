@@ -47,7 +47,7 @@ export default function EditPost() {
             floated="right"
             style={{ marginBottom: 20 }}
             as={Link}
-            to={`/posts/${postId}`}
+            to={`/post/${postId}`}
             onClick={() => editPost()}
           >
             Update

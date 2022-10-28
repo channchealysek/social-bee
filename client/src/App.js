@@ -31,8 +31,8 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/dashboard/:userId" element={<Dashboard />} />
-            <Route path="/posts/:postId" element={<SinglePost />} />
-            <Route path="/posts/edit/:postId" element={<EditPost />} />
+            <Route path="/post/:postId" element={<SinglePost />} />
+            <Route path="/post/edit/:postId" element={<EditPost />} />
             <Route path="*" element={<NotFound />}/>
           </Routes>
         </Container>

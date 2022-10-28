@@ -12,7 +12,7 @@ export default function EditButton({ postId }) {
       onOpen={() => setOpen(true)}
       open={open}
       trigger={
-        <Button color="blue" floated="right" as={Link} to={`/posts/edit/${postId}`}>
+        <Button color="blue" floated="right" as={Link} to={`/post/edit/${postId}`}>
           <Icon name="edit" style={{ margin: 0 }} />
         </Button>
       }

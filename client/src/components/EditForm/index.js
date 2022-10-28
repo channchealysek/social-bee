@@ -47,7 +47,7 @@ export default function PostForm({ postId }) {
             color="teal"
             floated="right"
             style={{ marginBottom: 20 }}
-            as={Link} to={`/posts/${postId}`}
+            as={Link} to={`/post/${postId}`}
           >
             Update
           </Button>

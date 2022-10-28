@@ -27,7 +27,7 @@ export default function PostCard({
           </span>
           {username}
         </Card.Header>
-        <Card.Meta as={Link} to={`/posts/${id}`}>
+        <Card.Meta as={Link} to={`/post/${id}`}>
           {moment(createdAt).fromNow(true)}
         </Card.Meta>
         <Card.Description>{body}</Card.Description>
@@ -36,7 +36,7 @@ export default function PostCard({
         <Segment.Inline>
           <LikeButton user={user} post={{ id, likes, likeCount }} />
           <MyPopup content="Comment on post">
-            <Button labelPosition="right" as={Link} to={`/posts/${id}`}>
+            <Button labelPosition="right" as={Link} to={`/post/${id}`}>
               <Button color="blue" basic>
                 <Icon name="comments" />
               </Button>

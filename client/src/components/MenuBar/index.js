@@ -22,6 +22,7 @@ export default function MenuBar() {
     <Menu.Menu position="right">
     <Menu.Item
         name="dashboard"
+        active={activeItem === "dashboard"}
         onClick={handleItemClick}
         as={Link}
         to={user && `/dashboard/${user.id}`}

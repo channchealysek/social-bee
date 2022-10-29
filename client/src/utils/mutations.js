@@ -134,17 +134,11 @@ export const DELETE_COMMENT = gql`
 `;
 
 export const ADD_FRIEND = gql`
-  mutation addFriend($friendId: ID!) {
+  mutation ($friendId: ID!) {
     addFriend(friendId: $friendId) {
-      id
       username
-      email
+      friendCount
       createdAt
-      friends {
-        id
-        username
-        createdAt
-      }
     }
   }
 `;

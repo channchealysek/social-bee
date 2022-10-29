@@ -4,16 +4,17 @@ const { authMiddleware } = require("../../utils/auth");
 
 module.exports = {
   Mutation: {
-    addFriend: async (_, { friendId }, context) => {
-      const { username } = authMiddleware(context);
+    addFriend: async (_, {friendId} , context) => {
+      const { id } = authMiddleware(context);
+      const currentUser = await User.findById(id)
       const getFriend = await User.findById(friendId);
       if (getFriend) {
-        getFriend.friends.unshift({
-          username,
+        currentUser.friends.unshift({
+          username:getFriend.username,
           createdAt: new Date().toISOString(),
         });
-        await getFriend.save();
-        return getFriend;
+        await currentUser.save();
+        return currentUser;
       } else throw new AuthenticationError("You are not login.");
     },
  

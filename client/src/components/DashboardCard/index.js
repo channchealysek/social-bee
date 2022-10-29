@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Grid, Card, Icon, Button, Label } from "semantic-ui-react";
+import { Grid, Card, Icon, Button } from "semantic-ui-react";
 import { AuthContext } from "../../utils/auth";
 export default function DashboardCard({ actionViews, friendCounts, postCounts }) {
   const { user } = useContext(AuthContext);
@@ -12,7 +12,7 @@ export default function DashboardCard({ actionViews, friendCounts, postCounts })
             <Card>
               <Card.Content>
                 <Icon name="users" size="large" style={{ margin: 0, marginRight: 10}} />
-                <Label color="blue">{friendCounts} friends</Label>
+                <div color="blue" id="countfriends">{friendCounts} friends</div>
                 <Card.Meta>
                   <Button
                     name="bntuser"
@@ -30,7 +30,7 @@ export default function DashboardCard({ actionViews, friendCounts, postCounts })
             <Card>
               <Card.Content>
                 <Icon name="list alternate outline" size="large" style={{ margin: 0, marginRight: 10}}  />
-                <Label color="blue">{postCounts} posts</Label>
+                <div color="blue" id="countposts">{postCounts} posts</div>
                 <Card.Meta>
                   <Button
                     name="bntviewposts"

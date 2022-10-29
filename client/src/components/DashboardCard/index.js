@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
-import { Grid, Card, Icon, Button } from "semantic-ui-react";
+import { Grid, Card, Icon, Button, Label } from "semantic-ui-react";
 import { AuthContext } from "../../utils/auth";
-export default function DashboardCard({ actionViews }) {
+export default function DashboardCard({ actionViews, friendCounts, postCounts }) {
   const { user } = useContext(AuthContext);
+  if(!user) window.location.assign("/login");
   return (
     <Grid columns={2}>
       {user && (
@@ -10,7 +11,8 @@ export default function DashboardCard({ actionViews }) {
           <Grid.Column>
             <Card>
               <Card.Content>
-                <Icon name="users" style={{ margin: 0 }} />
+                <Icon name="users" size="large" style={{ margin: 0, marginRight: 10}} />
+                <Label color="blue">{friendCounts} friends</Label>
                 <Card.Meta>
                   <Button
                     name="bntuser"
@@ -18,7 +20,7 @@ export default function DashboardCard({ actionViews }) {
                     floated="right"
                     onClick={actionViews}
                   >
-                    View Friend
+                    View
                   </Button>
                 </Card.Meta>
               </Card.Content>
@@ -27,7 +29,8 @@ export default function DashboardCard({ actionViews }) {
           <Grid.Column>
             <Card>
               <Card.Content>
-                <Icon name="list alternate outline" style={{ margin: 0 }} />
+                <Icon name="list alternate outline" size="large" style={{ margin: 0, marginRight: 10}}  />
+                <Label color="blue">{postCounts} posts</Label>
                 <Card.Meta>
                   <Button
                     name="bntviewposts"
@@ -35,7 +38,7 @@ export default function DashboardCard({ actionViews }) {
                     floated="right"
                     onClick={actionViews}
                   >
-                    View Posts
+                    View
                   </Button>
                 </Card.Meta>
               </Card.Content>

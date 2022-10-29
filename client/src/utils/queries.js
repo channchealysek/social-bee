@@ -55,3 +55,12 @@ export const QUERY_USERS = gql`
     }
   }
 `;
+
+export const GET_USER_BY_ID = gql`
+query getUserById($userId: ID!) {
+  getUserById(userId: $userId) {
+    id
+    friendCount
+  }
+}
+`;

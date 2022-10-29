@@ -24,7 +24,7 @@ module.exports = {
         throw new Error(err);
       }
     },
-    async getPostByUser(_, { userId }){
+    async getPostByUser(_, { userId}){
       try {
         console.log(userId)
         const post = await Post.findOne({user: userId});

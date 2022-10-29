@@ -1,12 +1,24 @@
 import React, { useState, useContext } from "react";
 import DashboardCard from '../DashboardCard'
 import AddFriends from "./AddFriends";
+import {useParams} from 'react-router-dom';
 import UserPosts from "./UserPosts";
 import UserStores from "./UserStores";
 import { AuthContext } from "../../utils/auth";
 
+import { useQuery } from "@apollo/client";
+import { GET_USER_BY_ID } from "../../utils/queries";
+
 export default function Dashboard() {
   const { user } = useContext(AuthContext);
+  const { userId } = useParams();
+  const { data } = useQuery(GET_USER_BY_ID,{
+    variables: {
+      userId
+    }
+  });
+  const getUserById = data?.getUserById;
+
   if(!user) window.location.assign("/");
   const [_Target, _setTarget] = useState(<UserPosts postCounts />);
 
@@ -25,7 +37,7 @@ export default function Dashboard() {
   }
   return (
     <>
-    <DashboardCard actionViews={actionViews}/>
+    <DashboardCard actionViews={actionViews} friendCounts={data?getUserById.friendCount : "0"} postCounts={"20"}/>
     {_Target}
     </>
   );

@@ -18,6 +18,19 @@ module.exports = {
         throw new Error(err);
       }
     },
+    async getUserById(_, { userId }){
+      try {
+        console.log(userId)
+        const getUser = await User.findById({_id: userId});
+        if (getUser) {
+          return getUser;
+        } else {
+          throw new Error("User not found");
+        }
+      } catch (err) {
+        throw new Error(err);
+      }
+    },
   },
 
   Mutation: {

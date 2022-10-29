@@ -7,12 +7,10 @@ const userSchema = new Schema({
   createdAt: String,
   friends: [
     {
-      type: Schema.Types.ObjectId,
       username: String,
-      email:String,
-      createdAt: String,
+      createdAt:String
     }
-  ],
+  ]
 });
 
 module.exports = model("User", userSchema);

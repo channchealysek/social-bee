@@ -11,7 +11,8 @@ module.exports = {
   Query: {
     async getUsers() {
       try {
-        const users = await User.find();
+        const users = await User.find().sort({createdAt: -1 });
+        console.log({users})
         return users;
       } catch (err) {
         throw new Error(err);

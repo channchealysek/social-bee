@@ -23,7 +23,7 @@ export const QUERY_POSTS = gql`
 `;
 
 export const QUERY_POST = gql`
-  query($postId: ID!) {
+  query ($postId: ID!) {
     getPost(postId: $postId) {
       id
       body
@@ -44,13 +44,14 @@ export const QUERY_POST = gql`
   }
 `;
 
-export const QUERY_USERS =gql`
-query {
-  getUsers {
-    id
-    username
-    email
-    createdAt
+export const QUERY_USERS = gql`
+  query {
+    getUsers {
+      id
+      username
+      email
+      createdAt
+      friendCount
+    }
   }
-}
 `;

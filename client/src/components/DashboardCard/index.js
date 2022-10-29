@@ -4,7 +4,7 @@ import { AuthContext } from "../../utils/auth";
 export default function DashboardCard({ actionViews }) {
   const { user } = useContext(AuthContext);
   return (
-    <Grid columns={3}>
+    <Grid columns={2}>
       {user && (
         <Grid.Row>
           <Grid.Column>
@@ -41,7 +41,7 @@ export default function DashboardCard({ actionViews }) {
               </Card.Content>
             </Card>
           </Grid.Column>
-          <Grid.Column>
+          {/* <Grid.Column>
             <Card>
               <Card.Content>
                 <Icon name="globe" style={{ margin: 0 }} />
@@ -57,7 +57,7 @@ export default function DashboardCard({ actionViews }) {
                 </Card.Meta>
               </Card.Content>
             </Card>
-          </Grid.Column>
+          </Grid.Column> */}
         </Grid.Row>
       )}
     </Grid>

@@ -19,6 +19,7 @@ const typeDefs = gql`
     token: String!
     createdAt: String!
     friendCount: Int!
+    friends:[Friend]!
   }
 
   type Comment {
@@ -29,6 +30,12 @@ const typeDefs = gql`
   }
 
   type Like {
+    id: ID!
+    createdAt: String!
+    username: String!
+  }
+
+  type Friend {
     id: ID!
     createdAt: String!
     username: String!

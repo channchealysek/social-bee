@@ -52,6 +52,11 @@ export const QUERY_USERS = gql`
       email
       createdAt
       friendCount
+      friends {
+        id
+        username
+        createdAt
+      }
     }
   }
 `;

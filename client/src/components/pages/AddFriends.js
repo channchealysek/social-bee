@@ -5,7 +5,7 @@ import { AuthContext } from "../../utils/auth";
 import { Grid, Transition } from "semantic-ui-react";
 import FriendCard from "../FriendCard";
 
-export default function AddFriends(friendCounts) {
+export default function AddFriends() {
   const { user } = useContext(AuthContext);
   if (!user) window.location.assign("/");
   const { loading, data } = useQuery(QUERY_USERS);

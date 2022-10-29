@@ -12,7 +12,6 @@ export default function PostCard({
   post: { id, body, createdAt, username, likeCount, commentCount, likes },
 }) {
   const { user } = useContext(AuthContext);
-  if(!user) window.location.assign("/login");
   return (
     <Card className="ui card fluid">
       <Card.Content>
@@ -36,6 +35,7 @@ export default function PostCard({
         <Segment.Inline>
           <LikeButton user={user} post={{ id, likes, likeCount }} />
           <MyPopup content="Comment on post">
+      
             <Button labelPosition="right" as={Link} to={`/post/${id}`}>
               <Button color="blue" basic>
                 <Icon name="comments" />

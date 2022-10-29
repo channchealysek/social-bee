@@ -87,7 +87,7 @@ export default function SinglePost() {
                     <Button
                       as="div"
                       labelPosition="right"
-                      onClick={() => console.log("Comment on post!")}
+                      // onClick={() => console.log("Comment on post!")}
                     >
                       <Button basic color="blue">
                         <Icon name="comments" />

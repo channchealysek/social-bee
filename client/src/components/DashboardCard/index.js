@@ -5,11 +5,11 @@ export default function DashboardCard({ actionViews, friendCounts, postCounts })
   const { user } = useContext(AuthContext);
   if(!user) window.location.assign("/login");
   return (
-    <Grid columns={2}>
+    <Grid columns={2} style={{padding: 20}}>
       {user && (
         <Grid.Row>
           <Grid.Column>
-            <Card>
+            <Card ui fluid card>
               <Card.Content>
                 <Icon name="users" size="large" style={{ margin: 0, marginRight: 10}} />
                 <div color="blue" id="countfriends">{friendCounts} friends</div>
@@ -27,7 +27,7 @@ export default function DashboardCard({ actionViews, friendCounts, postCounts })
             </Card>
           </Grid.Column>
           <Grid.Column>
-            <Card>
+            <Card ui fluid card>
               <Card.Content>
                 <Icon name="list alternate outline" size="large" style={{ margin: 0, marginRight: 10}}  />
                 <div color="blue" id="countposts">{postCounts} posts</div>

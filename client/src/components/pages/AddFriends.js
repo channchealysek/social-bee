@@ -10,7 +10,7 @@ export default function AddFriends() {
   if (!user) window.location.assign("/");
   const { loading, data } = useQuery(QUERY_USERS);
   return (
-    <Grid>
+    <div>
       {loading ? (
         <h1>loading posts...</h1>
       ) : (
@@ -37,6 +37,6 @@ export default function AddFriends() {
           </>
         </Grid.Column>
       )}
-    </Grid>
+    </div>
   );
 }

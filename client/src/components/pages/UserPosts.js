@@ -10,7 +10,7 @@ export default function UserPosts() {
   if(!user) window.location.assign("/");
   const { loading, data } = useQuery(QUERY_POSTS);
   return (
-    <Grid>
+    <div>
       {loading ? (
         <h1>loading posts...</h1>
       ) : (
@@ -38,6 +38,6 @@ export default function UserPosts() {
           </>
         </Grid.Column>
       )}
-    </Grid>
+    </div>
   );
 }

@@ -19,7 +19,7 @@ export default function Login(props) {
   const [login, { loading }] = useMutation(LOGIN_USER, {
     update(_, {data: {login: userData }}) {
       context.login(userData)
-      props.history.push("/");
+      window.location.assign("/");
     },
     onError(err) {
       setErrors(

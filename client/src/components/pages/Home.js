@@ -11,7 +11,6 @@ export default function Home() {
   const { loading, data } = useQuery(QUERY_POSTS);
   // ui stackable cards
   return (
-    <Grid>
       <Grid.Column width={12}>
         {user && (
           <Grid.Column width={6}>
@@ -39,6 +38,5 @@ export default function Home() {
           </>
         )}
       </Grid.Column>
-    </Grid>
   );
 }

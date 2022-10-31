@@ -98,11 +98,11 @@ export default function SinglePost() {
                     </Button>
                   </MyPopup>
 
-                  <Button
+                  {/* <Button
                     icon="share"
                     label={{ as: "a", basic: true, content: "2,048" }}
                     labelPosition="left"
-                  />
+                  /> */}
 
                   <Button.Group floated="right">
                     {user && user.username === username && (

@@ -9,7 +9,7 @@ export default function DashboardCard({ actionViews, friendCounts, postCounts })
       {user && (
         <Grid.Row>
           <Grid.Column>
-            <Card ui fluid card>
+            <Card className="ui fluid card">
               <Card.Content>
                 <Icon name="users" size="large" style={{ margin: 0, marginRight: 10}} />
                 <div color="blue" id="countfriends">{friendCounts} friends</div>
@@ -27,7 +27,7 @@ export default function DashboardCard({ actionViews, friendCounts, postCounts })
             </Card>
           </Grid.Column>
           <Grid.Column>
-            <Card ui fluid card>
+            <Card className="ui fluid card">
               <Card.Content>
                 <Icon name="list alternate outline" size="large" style={{ margin: 0, marginRight: 10}}  />
                 <div color="blue" id="countposts">{postCounts} posts</div>

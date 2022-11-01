@@ -9,6 +9,7 @@ export default function AddFriends() {
   const { user } = useContext(AuthContext);
   if (!user) window.location.assign("/");
   const { loading, data } = useQuery(QUERY_USERS);
+ 
   return (
     <div>
       {loading ? (
@@ -22,12 +23,13 @@ export default function AddFriends() {
             <Transition.Group>
               {data.getUsers &&
                 data.getUsers.map((_user) => (
+
                     <div key={_user.id}>
                     <div
                       className="ui fade visible transition"
                       style={{ marginBottom: 20 }}
                     >
-                      <FriendCard user={_user} id={_user.id}/>
+                      <FriendCard users={_user} id={_user.id} />
                     </div>
                   </div>
                   )

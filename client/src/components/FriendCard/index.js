@@ -6,7 +6,7 @@ import { ADD_FRIEND } from "../../utils/mutations";
 import { useMutation } from "@apollo/client";
 
 export default function FriendCard({
-  user: { id, username, createdAt, friends },
+  users: { id, username, createdAt, friends },
 }) {
   const { user } = useContext(AuthContext);
   const [disabled, setDisabled] = useState(false);
@@ -29,40 +29,65 @@ export default function FriendCard({
   };
   return (
     <>
-      {/* {friends.map((friend) =>
-        username === friend.username ? setDisabled(true) : setDisabled(false)
-      )} */}
-
-      <Card className="ui card fluid" style={{ padding: 10 }}>
-        <Segment.Inline>
-          <Card.Content>
-            <Card.Header>
-              <span>
-                <Image
-                  avatar
-                  floated="left"
-                  size="large"
-                  src="https://react.semantic-ui.com/images/avatar/large/daniel.jpg"
+      {user.username !== username ? (
+        <Card className="ui card fluid" style={{ padding: 10 }}>
+          <Segment.Inline>
+            <Card.Content>
+              <Card.Header>
+                <span>
+                  <Image
+                    avatar
+                    floated="left"
+                    size="large"
+                    src="https://react.semantic-ui.com/images/avatar/large/daniel.jpg"
+                  />
+                </span>
+                {username}
+              </Card.Header>
+              <Card.Meta>{moment(createdAt).fromNow(true)}</Card.Meta>
+            </Card.Content>
+           
+            {/* <Card.Content extra>
+              {username ===
+              friends.filter((fname) => fname.includes(username)) ? (
+                <Button
+                  id={id}
+                  floated="right"
+                  icon="add"
+                  label={{ as: "a", basic: true, content: "480" }}
+                  labelPosition="left"
+                  color="blue"
+                  disabled
                 />
-              </span>
-              {username}
-            </Card.Header>
-            <Card.Meta>{moment(createdAt).fromNow(true)}</Card.Meta>
-          </Card.Content>
-          <Card.Content extra>
-            <Button
-              id={id}
-              floated="right"
-              icon="add"
-              label={{ as: "a", basic: true, content: "480" }}
-              labelPosition="left"
-              color="blue"
-              disabled={disabled}
-              onClick={handleClick}
-            />
-          </Card.Content>
-        </Segment.Inline>
-      </Card>
+              ) : (
+                <Button
+                  id={id}
+                  floated="right"
+                  icon="add"
+                  label={{ as: "a", basic: true, content: "480" }}
+                  labelPosition="left"
+                  color="blue"
+                  disabled={disabled}
+                  onClick={handleClick}
+                />
+              )}
+            </Card.Content> */}
+
+            <Card.Content extra>
+              <Button
+                id={id}
+                floated="right"
+                icon="add"
+                label={{ as: "a", basic: true, content: "480" }}
+                labelPosition="left"
+                color="blue"
+                disabled={disabled}
+                onClick={handleClick}
+              />
+            </Card.Content>
+          </Segment.Inline>
+        </Card>
+      ) : null}
     </>
   );
 }

@@ -47,13 +47,15 @@ function AuthProvider(props) {
       type: 'LOGIN',
       payload: userData
     });
-    window.location.assign('/');
+    window.location.replace('/');
   }
 
   function logout() {
     localStorage.removeItem('token');
+    localStorage.clear();
     dispatch({ type: 'LOGOUT' });
-    window.location.assign('/');
+    window.location.replace('/');
+    window.location.reload(true);
   }
 
   return (

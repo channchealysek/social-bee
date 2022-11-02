@@ -24,23 +24,9 @@ Open http://localhost:3000 to view it in the browser. The page will reload if yo
 
 ## Screenshot
 
-### Home Page with no user login
-![Screenshot 2022-10-29 172705](https://user-images.githubusercontent.com/102747948/198854791-c0fdabb1-4f47-4fe8-af78-2453414c9d24.png)
-
-### Login Page
-![Screenshot 2022-10-29 172803](https://user-images.githubusercontent.com/102747948/198854814-115d078c-e824-4e6a-a189-b44a84d15514.png)
-
-### Register Page
-![Screenshot 2022-10-29 172827](https://user-images.githubusercontent.com/102747948/198854818-e04f3a42-67b7-40c2-96c2-0b9f849137ab.png)
-
-### Page with logged user
-![Screenshot 2022-10-29 172920](https://user-images.githubusercontent.com/102747948/198854823-9b2f6cf6-7d05-4c17-8ac2-9d96e038d6ec.png)
-
-### Dashboard with All Posts of user owner
-![Screenshot 2022-10-29 173008](https://user-images.githubusercontent.com/102747948/198854824-420ef268-afdb-4d72-a116-fa3a5f17c32e.png)
-
-### Dashboard with People & Friend
-![Screenshot 2022-10-29 173240](https://user-images.githubusercontent.com/102747948/198854847-ed722360-d18d-4265-91a5-47e8e76872ea.png)
+![1](https://user-images.githubusercontent.com/102747948/199525490-e25a27d3-089e-4006-8797-aa0a9f6d10d4.png)
+![4](https://user-images.githubusercontent.com/102747948/199525507-c74a8ef1-cb77-48d1-b5c1-b78ff4d2d032.png)
+![5](https://user-images.githubusercontent.com/102747948/199525523-7132244f-6905-4a6c-8eb5-be67a92d981e.png)
 
 ## LiveURL
 The URL of the deployed application  

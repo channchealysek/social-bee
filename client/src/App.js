@@ -21,7 +21,7 @@ import EditPost from './components/pages/EditPost';
 function App() {
   return (
     <AuthProvider>
-      <Routers>
+      <Routers basename='/'>
         <Container>
           <MenuBar />
           <Routes>

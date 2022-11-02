@@ -21,7 +21,7 @@ import EditPost from './components/pages/EditPost';
 function App() {
   return (
     <AuthProvider>
-      <Routers>
+      <Routers basename='social-bee21.herokuapp.com'>
         <Container>
           <MenuBar />
           <Routes>
